@@ -307,6 +307,6 @@ Released under the [MIT License](LICENSE). See `LICENSE` for details.
 **Dynamic Duo** · Team ID `VTU-QFF-HC-0198` · Tier `Online`
 · Built with ⚛️ Qiskit for the VTU-QFF Hackathon
 
-[⬆ Back to Top](#Dynamic Duo)
+[⬆ Back to Top](#dynamic-duo)
 
 </div>
