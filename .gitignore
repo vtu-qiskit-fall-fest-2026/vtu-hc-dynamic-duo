@@ -49,9 +49,22 @@ data/*.pkl
 # Quantum backend output
 backend_provider_*.json
 
+# Node / Next.js
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+.turbo/
+*.tsbuildinfo
+
 # OS / editors
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
 *.swp
+

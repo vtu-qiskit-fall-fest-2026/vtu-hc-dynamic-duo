@@ -1,0 +1,21 @@
+# Q-Shield Backend Dependencies
+# Core Framework
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+pydantic>=2.6.0
+websockets>=12.0
+python-multipart>=0.0.9
+
+# LLM Engine: Groq SDK (llama3-70b-8192 for instant PQC code patching)
+groq>=0.9.0
+
+# Quantum Simulation: Qiskit BB84 Single-Photon Circuits
+qiskit>=1.0.0
+qiskit-aer>=0.14.0
+numpy>=1.26.0
+
+# Cryptography (X25519 + HKDF for Hybrid KEM handshake)
+cryptography>=42.0.0
+
+# Environment variable loading
+python-dotenv>=1.0.0
