@@ -66,7 +66,8 @@ export function HybridPqcRemediationPanel({
       const seq = apiRes.terminal_logs;
       const interval = setInterval(() => {
         if (step < seq.length) {
-          setLogs((prev) => [...prev, seq[step]]);
+          const entry = seq[step];
+          if (entry) setLogs((prev) => [...prev, entry]);
           step++;
         } else {
           clearInterval(interval);
@@ -89,7 +90,8 @@ export function HybridPqcRemediationPanel({
       let step = 0;
       const interval = setInterval(() => {
         if (step < newLogsSequence.length) {
-          setLogs((prev) => [...prev, newLogsSequence[step]]);
+          const entry = newLogsSequence[step];
+          if (entry) setLogs((prev) => [...prev, entry]);
           step++;
         } else {
           clearInterval(interval);
@@ -127,7 +129,8 @@ export function HybridPqcRemediationPanel({
       let step = 0;
       const interval = setInterval(() => {
         if (step < seq.length) {
-          setLogs((prev) => [...prev, seq[step]]);
+          const entry = seq[step];
+          if (entry) setLogs((prev) => [...prev, entry]);
           step++;
         } else {
           clearInterval(interval);
@@ -149,7 +152,8 @@ export function HybridPqcRemediationPanel({
       let step = 0;
       const interval = setInterval(() => {
         if (step < prLogsSequence.length) {
-          setLogs((prev) => [...prev, prLogsSequence[step]]);
+          const entry = prLogsSequence[step];
+          if (entry) setLogs((prev) => [...prev, entry]);
           step++;
         } else {
           clearInterval(interval);
@@ -305,14 +309,14 @@ export function HybridPqcRemediationPanel({
             <span>q-shield-daemon: /dev/tty0 • session_id=0x9f31a</span>
             <span className="text-emerald-400">READY</span>
           </div>
-          {logs.map((line, idx) => {
+          {logs.filter(Boolean).map((line, idx) => {
             let color = "text-slate-300";
-            if (line.includes("[SUCCESS]")) color = "text-emerald-400 font-semibold";
-            if (line.includes("[CRITICAL]") || line.includes("FAILED"))
+            if (line?.includes("[SUCCESS]")) color = "text-emerald-400 font-semibold";
+            if (line?.includes("[CRITICAL]") || line?.includes("FAILED"))
               color = "text-red-400 font-semibold";
-            if (line.includes("[TLS-HANDSHAKE]") || line.includes("[CODEGEN]"))
+            if (line?.includes("[TLS-HANDSHAKE]") || line?.includes("[CODEGEN]"))
               color = "text-blue-400";
-            if (line.includes("[POLICY-CHECK]") || line.includes("[CBOM-SCAN]"))
+            if (line?.includes("[POLICY-CHECK]") || line?.includes("[CBOM-SCAN]"))
               color = "text-amber-400";
 
             return (
