@@ -29,6 +29,7 @@ import { generateInitialQkdData, QkdDataPoint } from "@/lib/mock-qkd-data";
 import {
   postQkdSimulate,
   connectQkdWebSocket,
+  disconnectQkdWebSocket,
   sendWsEveToggle,
   QkdSimulateResponse,
 } from "@/lib/api";
@@ -185,7 +186,7 @@ export function QkdDeepSimulatorView() {
 
     wsRef.current = ws;
     return () => {
-      ws?.close();
+      disconnectQkdWebSocket(ws);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

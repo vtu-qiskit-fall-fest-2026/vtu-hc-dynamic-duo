@@ -312,6 +312,29 @@ export function connectQkdWebSocket(opts: QkdWebSocketOptions): WebSocket | null
   }
 }
 
+/**
+ * Safely disconnects a WebSocket without triggering browser warnings
+ * caused by closing a socket while it is still in the CONNECTING state (e.g. during React StrictMode).
+ */
+export function disconnectQkdWebSocket(ws: WebSocket | null) {
+  if (!ws) return;
+  ws.onmessage = null;
+  ws.onerror = null;
+  ws.onclose = null;
+
+  if (ws.readyState === WebSocket.OPEN) {
+    ws.close(1000, "Clean disconnect");
+  } else if (ws.readyState === WebSocket.CONNECTING) {
+    ws.onopen = () => {
+      try {
+        ws.close(1000, "Clean disconnect after open");
+      } catch {
+        // ignore
+      }
+    };
+  }
+}
+
 export function sendWsEveToggle(ws: WebSocket | null, eveActive: boolean) {
   if (ws && ws.readyState === WebSocket.OPEN) {
     ws.send(JSON.stringify({ eve_active: eveActive }));

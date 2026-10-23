@@ -28,7 +28,7 @@ import {
   Cpu,
   ZapOff,
 } from "lucide-react";
-import { connectQkdWebSocket, sendWsEveToggle, QkdSimulateResponse } from "@/lib/api";
+import { connectQkdWebSocket, disconnectQkdWebSocket, sendWsEveToggle, QkdSimulateResponse } from "@/lib/api";
 
 interface QkdProps {
   onOpenDeepView?: () => void;
@@ -81,7 +81,7 @@ export function QkdSimulatorModule({ onOpenDeepView }: QkdProps) {
     });
     wsRef.current = ws;
     return () => {
-      ws?.close();
+      disconnectQkdWebSocket(ws);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
