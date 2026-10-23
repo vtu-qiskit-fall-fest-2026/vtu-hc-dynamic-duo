@@ -46,9 +46,8 @@
 
 | # | Name | GitHub Username | Role |
 | :-- | :--- | :--- | :--- |
-| 1 | _Add your name_ | _your-github-username_ | _Team Lead_ |
-| 2 | _Add your name_ | _your-github-username_ | _Developer_ |
-| 3 | _Add your name_ | _your-github-username_ | _Developer_ |
+| 1 | Vishnu  | vishnu-borutosarada_ | _Team Lead_ |
+| 2 | Ramya Arunachalam | RamyaArun07 | _Developer_ |
 
 <!--
 Optional: add a plain list instead of the table above.
@@ -66,11 +65,11 @@ who experiences it, and why does it matter. Link to the official problem
 statement from the brief if one applies.
 -->
 
-**Problem:** _Describe the problem in 2–3 sentences._
+**Problem:** Adversaries are actively executing "Harvest Now, Decrypt Later" (HNDL) attacks, stealing sensitive encrypted data today with the intent to decrypt it the moment fault-tolerant quantum computers become available. At the same time, modern enterprises suffer from massive "crypto-agility debt" because they lack the visibility to easily locate and replace the vulnerable legacy cryptography (like RSA and ECC) deeply hardcoded across their complex infrastructure. Consequently, organizations urgently need an automated solution to discover and migrate these hidden cryptographic dependencies to post-quantum standards before the secure shelf-life of their critical data expires.
 
-**Why it matters:** _Explain the impact or opportunity._
+**Why it matters:** Highly sensitive information—such as national security secrets, financial logs, and healthcare records—has a confidentiality requirement of 10 to 30 years, meaning data harvested by attackers today will be easily decrypted once quantum computers arrive. Waiting for quantum hardware to mature is no longer a viable strategy, especially as global regulatory mandates like NIST FIPS 203/204 already require enterprises to transition to post-quantum cryptography. An automated discovery and remediation solution bridges this gap immediately, preventing catastrophic data exposure while saving organizations millions in manual security audits.
 
-**Track / Category:** _Online / Offline · Track 1 / Track 2 · <domain>_
+**Track / Category:** Quantum Cryptography & Security
 
 ---
 
